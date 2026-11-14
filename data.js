@@ -21,7 +21,7 @@ const STORE_CONFIG = {
 
   // IMPORTANT: Enter your WhatsApp number with country code, NO '+' or spaces.
   // Example for India (+91 98765 43210) -> "919876543210"
-  whatsappNumber: "919876543210",
+  whatsappNumber: "+91 79087 41893",
 
   currencySymbol: "₹",
   instagramHandle: "@meher.punjab",
@@ -43,7 +43,7 @@ const PRODUCTS = [
     category: "Hand-Painted Suits",
     image: "https://i.ibb.co/zV9j7S90/trashed-1789495017-1786902945221.png",
     description: "Pure mulberry silk kurta and salwar hand-painted freehand with blooming Amritsari peonies, antique gold zari outlines, and an airy organza dupatta.",
-    stockStatus: "In Stock"
+    stockStatus: "Sold Out"
   },
   {
     id: "MHR-102",
