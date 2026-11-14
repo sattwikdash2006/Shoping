@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e0d0c" />
+  <meta
+    name="description"
+    content="MEHER — Hand-Painted Punjabi Atelier. Heirloom hand-painted silk suits, organza dupattas, and artisan Punjabi juttis crafted in Patiala."
+  />
+  <title>MEHER — Hand-Painted Punjabi Atelier</title>
+
+  <!-- Lightweight Typography with Instant System Fallback for Slow Connections -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-obsidian: #0e0d0c;
+      --bg-elevated: #171513;
+      --bg-card: #1c1917;
+      --border-hairline: rgba(201, 169, 110, 0.22);
+      --border-strong: rgba(201, 169, 110, 0.5);
+      --champagne: #c9a96e;
+      --champagne-light: #e2caa0;
+      --text-primary: #f2eee7;
+      --text-secondary: #aba295;
+      --text-muted: #787066;
+      --whatsapp-bg: #1e2a22;
+      --whatsapp-border: #3a6b4b;
+      --whatsapp-text: #8be0a4;
+      --status-in: #9fd8b1;
+      --status-order: #e2caa0;
+      --status-sold: #c98a82;
+      --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --max-width: 1200px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--champagne);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: 18px;
+    }
+
+    /* Announcement Bar */
+    .announcement-bar {
+      background-color: #151311;
+      border-bottom: 1px solid var(--border-hairline);
+      text-align: center;
+      padding: 8px 14px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--champagne-light);
+    }
+
+    /* Header (No heavy backdrop-blur for smooth low-end mobile scrolling) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: rgba(14, 13, 12, 0.96);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: var(--champagne-light);
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 28px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a:hover {
+      color: var(--champagne-light);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--champagne-light);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .header-cta:hover {
+      background-color: var(--champagne);
+      color: var(--bg-obsidian);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 36px 0 48px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 14px;
+    }
+
+    .hero-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 400;
+      line-height: 1.06;
+      letter-spacing: 0.01em;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+
+    .hero-heading em {
+      font-style: italic;
+      color: var(--champagne-light);
+    }
+
+    .hero-copy {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 48ch;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 24px;
+      background-color: var(--champagne);
+      color: var(--bg-obsidian);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--champagne-light);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--champagne-light);
+      color: var(--champagne-light);
+    }
+
+    .hero-media {
+      position: relative;
+      border: 1px solid var(--border-hairline);
+      padding: 10px;
+      background-color: var(--bg-elevated);
+      border-radius: var(--radius-sm);
+    }
+
+    .hero-media-frame {
+      aspect-ratio: 4 / 5;
+      max-height: 520px;
+      width: 100%;
+      overflow: hidden;
+      background-color: #12100e;
+    }
+
+    .hero-media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 4px 2px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    /* Trust / Heritage Strip */
+    .pillars {
+      background-color: var(--bg-elevated);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 26px 0;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .pillar-item {
+      border-left: 2px solid var(--champagne);
+      padding-left: 14px;
+    }
+
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      color: var(--champagne-light);
+      font-weight: 500;
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Catalog Section */
+    .catalog-section {
+      padding: 48px 0 64px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    /* Filter & Search Toolbar */
+    .catalog-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid var(--border-hairline);
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      background-color: var(--bg-elevated);
+      transition: all 0.18s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--champagne);
+      color: var(--text-primary);
+    }
+
+    .filter-btn[aria-pressed="true"] {
+      background-color: var(--champagne);
+      border-color: var(--champagne);
+      color: var(--bg-obsidian);
+      font-weight: 600;
+    }
+
+    .search-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .search-input {
+      width: 100%;
+      max-width: 300px;
+      min-height: 42px;
+      padding: 0 14px;
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--champagne);
+    }
+
+    .results-count {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .product-card:hover {
+      border-color: var(--border-strong);
+    }
+
+    .card-media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background-color: #131110;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .product-card:hover .card-media img {
+      transform: scale(1.03);
+    }
+
+    .stock-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 5px 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background-color: rgba(14, 13, 12, 0.88);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      color: var(--status-in);
+    }
+
+    .stock-badge.is-order { color: var(--status-order); }
+    .stock-badge.is-sold { color: var(--status-sold); }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 18px;
+      gap: 10px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--champagne);
+    }
+
+    .card-id {
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 23px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    .card-price {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--champagne-light);
+      letter-spacing: 0.03em;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+
+    .card-actions {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 44px;
+      padding: 0 14px;
+      background-color: var(--whatsapp-bg);
+      border: 1px solid var(--whatsapp-border);
+      border-radius: var(--radius-sm);
+      color: var(--whatsapp-text);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #264d33;
+      color: #ffffff;
+    }
+
+    .btn-whatsapp.is-sold {
+      background-color: #1f1b1a;
+      border-color: rgba(201, 138, 130, 0.4);
+      color: var(--status-sold);
+    }
+
+    .btn-details {
+      width: 100%;
+      min-height: 36px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .btn-details:hover {
+      color: var(--champagne-light);
+    }
+
+    /* Empty / Error States */
+    .state-box {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 20px;
+      border: 1px dashed var(--border-hairline);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+    }
+
+    /* Craftsmanship Banner */
+    .craft-banner {
+      background-color: var(--bg-elevated);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 52px 0;
+    }
+
+    .craft-inner {
+      max-width: 720px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .craft-inner p {
+      color: var(--text-secondary);
+      margin: 14px 0 24px;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 36px 0 42px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      letter-spacing: 0.2em;
+      color: var(--champagne-light);
+      margin-bottom: 4px;
+    }
+
+    /* Lightweight Quick-View Modal */
+    dialog.product-modal {
+      margin: auto;
+      max-width: 780px;
+      width: calc(100% - 28px);
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 0;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    dialog.product-modal::backdrop {
+      background-color: rgba(6, 5, 5, 0.84);
+    }
+
+    .modal-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .modal-img-box {
+      aspect-ratio: 4 / 5;
+      background-color: #12100e;
+    }
+
+    .modal-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-info {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modal-close {
+      align-self: flex-end;
+      min-width: 40px;
+      min-height: 40px;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+    }
+
+    .modal-close:hover {
+      color: var(--champagne-light);
+      border-color: var(--champagne);
+    }
+
+    /* Responsive Breakpoints (Mobile-First) */
+    @media (min-width: 600px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pillars-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 860px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .hero {
+        padding: 56px 0 68px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
+      }
+
+      .modal-wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement-bar">
+    Hand-Painted in Punjab &bull; Direct Artisan Orders via WhatsApp &bull; Pan-India Insured Shipping
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand-logo" aria-label="Brand Home">
+        <span class="brand-title" id="headerBrandName">MEHER</span>
+        <span class="brand-sub" id="headerBrandSub">Hand-Painted Punjabi Atelier</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#collection">Collection</a>
+        <a href="#craft">The Craft</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#collection" id="headerWhatsAppLink" class="header-cta" target="_blank" rel="noopener noreferrer">
+        Concierge
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="hero-eyebrow" id="heroOrigin">Patiala &amp; Amritsar &bull; Limited Batches</span>
+          <h1 class="hero-heading">
+            Brushed by Hand.<br />
+            <em>Woven in Punjab.</em>
+          </h1>
+          <p class="hero-copy">
+            Each silk suit, organza dupatta, and velvet jutti is painted freehand by master karigars—turning wearable heirloom textiles into one-of-a-kind works of art.
+          </p>
+          <div class="hero-actions">
+            <a href="#collection" class="btn-primary">Explore Collection</a>
+            <a href="#craft" class="btn-secondary">Bespoke Trousseau</a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-media-frame">
+            <img
+              id="heroShowcaseImg"
+              src=""
+              alt="Hand-painted Punjabi silk ensemble editorial showcase"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <div class="hero-caption">
+            <span>Autumn / Winter Atelier</span>
+            <span>Hand-Painted Silk</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Craftsmanship Pillars -->
+    <section class="pillars" aria-label="Atelier Guarantees">
+      <div class="container pillars-grid">
+        <div class="pillar-item">
+          <h2 class="pillar-title">Freehand Karigari</h2>
+          <p class="pillar-desc">No screen prints or blocks—every floral petal and outline is hand-brushed.</p>
+        </div>
+        <div class="pillar-item">
+          <h2 class="pillar-title">Pure Heritage Textiles</h2>
+          <p class="pillar-desc">Crafted on mulberry silk, chanderi, tussar, and cushioned velvet leather.</p>
+        </div>
+        <div class="pillar-item">
+          <h2 class="pillar-title">Personal WhatsApp Styling</h2>
+          <p class="pillar-desc">Direct sizing, color customization, and dispatch updates with our studio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Product Catalog -->
+    <section id="collection" class="catalog-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Curated Showcase</span>
+          <h2 class="section-title">The Atelier Collection</h2>
+        </div>
+
+        <div class="catalog-controls">
+          <div class="filter-pills" id="categoryFilters" role="group" aria-label="Filter products by category"></div>
+
+          <div class="search-meta-row">
+            <input
+              type="search"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search suits, juttis, ID..."
+              aria-label="Search products"
+            />
+            <span class="results-count" id="resultsCount">Loading pieces...</span>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- Bespoke Craft Banner -->
+    <section id="craft" class="craft-banner">
+      <div class="container craft-inner">
+        <span class="section-kicker">Custom Bridal &amp; Festive</span>
+        <h2 class="section-title">Commission a Bespoke Piece</h2>
+        <p>
+          Looking for a specific shade to match your phulkari or wedding palette? Our Patiala painters create custom-color hand-painted suits and dupattas on request.
+        </p>
+        <a id="bespokeWhatsAppBtn" href="#" class="btn-primary" target="_blank" rel="noopener noreferrer">
+          Chat for Custom Orders
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand" id="footerBrandName">MEHER</div>
+        <p id="footerCity">Patiala &amp; Amritsar, Punjab &bull; Worldwide &amp; Pan-India Dispatch</p>
+      </div>
+      <div>
+        <span id="footerInstagram">@meher.punjab</span> &bull;
+        <a id="footerWhatsApp" href="#" target="_blank" rel="noopener noreferrer" style="color: var(--champagne-light);">
+          Order on WhatsApp
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Accessible Native Dialog for Quick View -->
+  <dialog id="productModal" class="product-modal" aria-labelledby="modalTitle">
+    <div class="modal-wrap">
+      <div class="modal-img-box">
+        <img id="modalImg" src="" alt="" />
+      </div>
+      <div class="modal-info">
+        <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close product details">&times;</button>
+        <div class="card-meta">
+          <span id="modalCategory"></span>
+          <span id="modalId" class="card-id"></span>
+        </div>
+        <h3 id="modalTitle" class="card-title" style="font-size: 28px; cursor: default;"></h3>
+        <div id="modalPrice" class="card-price" style="font-size: 20px;"></div>
+        <div id="modalStock" style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;"></div>
+        <p id="modalDesc" style="color: var(--text-secondary); font-size: 14.5px; margin: 6px 0 12px;"></p>
+        <p style="font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border-hairline); padding-top: 10px;">
+          Care: Dry clean only. Iron on reverse side on low silk setting.
+        </p>
+        <a id="modalWhatsAppBtn" href="#" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" style="margin-top: auto;">
+          Order via WhatsApp
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Load External Product Catalog -->
+  <script src="data.js"></script>
+
+  <!-- Frontend Storefront Logic -->
+  <script>
+    (function () {
+      "use strict";
+
+      // Fallback SVG data URI if an image URL fails or user is offline
+      const FALLBACK_IMAGE =
+        "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">' +
+            '<rect width="400" height="500" fill="#171513"/>' +
+            '<rect x="20" y="20" width="360" height="460" fill="none" stroke="#c9a96e" stroke-opacity="0.35" stroke-width="1"/>' +
+            '<text x="200" y="242" text-anchor="middle" fill="#e2caa0" font-family="Georgia, serif" font-size="28" letter-spacing="8">MEHER</text>' +
+            '<text x="200" y="274" text-anchor="middle" fill="#aba295" font-family="sans-serif" font-size="11" letter-spacing="4">HAND-PAINTED ATELIER</text>' +
+          "</svg>"
+        );
+
+      const WHATSAPP_ICON =
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>' +
+        "</svg>";
+
+      const productGrid = document.getElementById("productGrid");
+      const categoryFilters = document.getElementById("categoryFilters");
+      const searchInput = document.getElementById("searchInput");
+      const resultsCount = document.getElementById("resultsCount");
+      const modal = document.getElementById("productModal");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+      // Guard if data.js is missing or failed to load
+      if (typeof PRODUCTS === "undefined" || !Array.isArray(PRODUCTS)) {
+        productGrid.innerHTML =
+          '<div class="state-box">Unable to load products. Please make sure <strong>data.js</strong> is in the same folder as <strong>index.html</strong>.</div>';
+        resultsCount.textContent = "0 Pieces";
+        return;
+      }
+
+      const config = typeof STORE_CONFIG === "object" && STORE_CONFIG !== null
+        ? STORE_CONFIG
+        : {
+            brandName: "MEHER",
+            tagline: "Hand-Painted Punjabi Atelier",
+            city: "Patiala & Amritsar, Punjab",
+            whatsappNumber: "919876543210",
+            currencySymbol: "₹",
+            instagramHandle: "@meher.punjab",
+            heroImage: ""
+          };
+
+      let activeCategory = "All";
+      let searchQuery = "";
+
+      function escapeHtml(str) {
+        return String(str ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function formatPrice(amount) {
+        const num = Number(amount);
+        if (Number.isNaN(num)) return escapeHtml(amount);
+        return (config.currencySymbol || "₹") + num.toLocaleString("en-IN");
+      }
+
+      function cleanPhone(num) {
+        return String(num || "").replace(/\D/g, "");
+      }
+
+      function buildWhatsAppUrl(message) {
+        const phone = cleanPhone(config.whatsappNumber);
+        return "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+      }
+
+      function buildProductWhatsAppUrl(product) {
+        const isSold = String(product.stockStatus).toLowerCase() === "sold out";
+        const msg = isSold
+          ? `Hi, I saw ${product.title} (ID: #${product.id}) is Sold Out. Can I request a custom hand-painted piece like this?`
+          : `Hi, I want to order ${product.title}, ID: #${product.id}. (Price: ${formatPrice(product.price)})`;
+        return buildWhatsAppUrl(msg);
+      }
+
+      function getStockBadgeClass(status) {
+        const s = String(status || "").toLowerCase();
+        if (s === "sold out") return "is-sold";
+        if (s === "made to order" || s === "limited edition") return "is-order";
+        return "";
+      }
+
+      function hydrateStoreBranding() {
+        document.title = `${config.brandName} — ${config.tagline}`;
+        document.getElementById("headerBrandName").textContent = config.brandName;
+        document.getElementById("headerBrandSub").textContent = config.tagline;
+        document.getElementById("footerBrandName").textContent = config.brandName;
+        document.getElementById("footerCity").textContent =
+          `${config.city} • Worldwide & Pan-India Dispatch`;
+        document.getElementById("footerInstagram").textContent = config.instagramHandle;
+
+        const heroImg = document.getElementById("heroShowcaseImg");
+        heroImg.src = config.heroImage || FALLBACK_IMAGE;
+        heroImg.onerror = function () {
+          this.onerror = null;
+          this.src = FALLBACK_IMAGE;
+        };
+
+        const conciergeUrl = buildWhatsAppUrl(
+          `Hi ${config.brandName}, I would like styling assistance with your hand-painted Punjabi collection.`
+        );
+        const bespokeUrl = buildWhatsAppUrl(
+          `Hi ${config.brandName}, I want to inquire about a custom hand-painted bridal/festive piece.`
+        );
+
+        document.getElementById("headerWhatsAppLink").href = conciergeUrl;
+        document.getElementById("bespokeWhatsAppBtn").href = bespokeUrl;
+        document.getElementById("footerWhatsApp").href = conciergeUrl;
+      }
+
+      function renderCategoryPills() {
+        const uniqueCategories = ["All"];
+        PRODUCTS.forEach((p) => {
+          if (p.category && !uniqueCategories.includes(p.category)) {
+            uniqueCategories.push(p.category);
+          }
+        });
+
+        categoryFilters.innerHTML = uniqueCategories
+          .map(
+            (cat) =>
+              `<button type="button" class="filter-btn" data-category="${escapeHtml(cat)}" aria-pressed="${
+                cat === activeCategory ? "true" : "false"
+              }">${escapeHtml(cat)}</button>`
+          )
+          .join("");
+      }
+
+      function renderProducts() {
+        const query = searchQuery.trim().toLowerCase();
+        const filtered = PRODUCTS.filter((product) => {
+          const matchesCat = activeCategory === "All" || product.category === activeCategory;
+          if (!matchesCat) return false;
+          if (!query) return true;
+          const haystack = `${product.title} ${product.id} ${product.category} ${product.description}`.toLowerCase();
+          return haystack.includes(query);
+        });
+
+        resultsCount.textContent =
+          filtered.length === 1 ? "Showing 1 Piece" : `Showing ${filtered.length} Pieces`;
+
+        if (filtered.length === 0) {
+          productGrid.innerHTML =
+            '<div class="state-box">No hand-painted pieces match your search. Try selecting <strong>All</strong> categories.</div>';
+          return;
+        }
+
+        productGrid.innerHTML = filtered
+          .map((product) => {
+            const isSold = String(product.stockStatus).toLowerCase() === "sold out";
+            const badgeClass = getStockBadgeClass(product.stockStatus);
+            const waUrl = buildProductWhatsAppUrl(product);
+            const btnLabel = isSold ? "Request Custom Recreate" : "Order via WhatsApp";
+
+            return `
+              <article class="product-card" data-id="${escapeHtml(product.id)}">
+                <div class="card-media" data-open-modal="${escapeHtml(product.id)}" role="button" tabindex="0" aria-label="View details for ${escapeHtml(product.title)}">
+                  <img
+                    src="${escapeHtml(product.image || FALLBACK_IMAGE)}"
+                    alt="${escapeHtml(product.title)}"
+                    loading="lazy"
+                    decoding="async"
+                    onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}';"
+                  />
+                  <span class="stock-badge ${badgeClass}">${escapeHtml(product.stockStatus || "In Stock")}</span>
+                </div>
+
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span>${escapeHtml(product.category)}</span>
+                    <span class="card-id">ID: #${escapeHtml(product.id)}</span>
+                  </div>
+
+                  <h3 class="card-title" data-open-modal="${escapeHtml(product.id)}">${escapeHtml(product.title)}</h3>
+                  <div class="card-price">${formatPrice(product.price)}</div>
+                  <p class="card-desc">${escapeHtml(product.description)}</p>
+
+                  <div class="card-actions">
+                    <a
+                      href="${escapeHtml(waUrl)}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-whatsapp ${isSold ? "is-sold" : ""}"
+                    >
+                      ${WHATSAPP_ICON}
+                      <span>${btnLabel}</span>
+                    </a>
+                    <button type="button" class="btn-details" data-open-modal="${escapeHtml(product.id)}">
+                      View Details &amp; Care
+                    </button>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      function openProductModal(productId) {
+        const product = PRODUCTS.find((p) => String(p.id) === String(productId));
+        if (!product) return;
+
+        const isSold = String(product.stockStatus).toLowerCase() === "sold out";
+        const modalImg = document.getElementById("modalImg");
+        modalImg.src = product.image || FALLBACK_IMAGE;
+        modalImg.alt = product.title;
+        modalImg.onerror = function () {
+          this.onerror = null;
+          this.src = FALLBACK_IMAGE;
+        };
+
+        document.getElementById("modalCategory").textContent = product.category || "";
+        document.getElementById("modalId").textContent = `ID: #${product.id}`;
+        document.getElementById("modalTitle").textContent = product.title;
+        document.getElementById("modalPrice").textContent = formatPrice(product.price);
+        document.getElementById("modalDesc").textContent = product.description || "";
+
+        const stockEl = document.getElementById("modalStock");
+        stockEl.textContent = product.stockStatus || "In Stock";
+        stockEl.style.color = isSold ? "var(--status-sold)" : "var(--status-in)";
+
+        const modalBtn = document.getElementById("modalWhatsAppBtn");
+        modalBtn.href = buildProductWhatsAppUrl(product);
+        modalBtn.className = "btn-whatsapp" + (isSold ? " is-sold" : "");
+        modalBtn.innerHTML =
+          WHATSAPP_ICON + `<span>${isSold ? "Request Custom Recreate" : "Order via WhatsApp"}</span>`;
+
+        if (typeof modal.showModal === "function") {
+          modal.showModal();
+        } else {
+          modal.setAttribute("open", "");
+        }
+      }
+
+      function closeProductModal() {
+        if (typeof modal.close === "function") {
+          modal.close();
+        } else {
+          modal.removeAttribute("open");
+        }
+      }
+
+      // Event Delegation for Category Filtering
+      categoryFilters.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-category]");
+        if (!btn) return;
+        activeCategory = btn.getAttribute("data-category");
+        renderCategoryPills();
+        renderProducts();
+      });
+
+      // Live Search
+      searchInput.addEventListener("input", (e) => {
+        searchQuery = e.target.value;
+        renderProducts();
+      });
+
+      // Event Delegation for Quick View Modal
+      productGrid.addEventListener("click", (e) => {
+        const trigger = e.target.closest("[data-open-modal]");
+        if (!trigger) return;
+        openProductModal(trigger.getAttribute("data-open-modal"));
+      });
+
+      productGrid.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const trigger = e.target.closest("[data-open-modal]");
+        if (!trigger) return;
+        e.preventDefault();
+        openProductModal(trigger.getAttribute("data-open-modal"));
+      });
+
+      modalCloseBtn.addEventListener("click", closeProductModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeProductModal();
+      });
+
+      // Initialize Storefront
+      hydrateStoreBranding();
+      renderCategoryPills();
+      renderProducts();
+    })();
+  </script>
+</body>
+</html>
