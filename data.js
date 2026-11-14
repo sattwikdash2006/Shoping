@@ -41,7 +41,7 @@ const PRODUCTS = [
     title: "Amritsari Peony Silk Suit",
     price: 7450,
     category: "Hand-Painted Suits",
-    image: "https://images.unsplash.com/photo-1743229995753-69be4b438204?auto=format&fit=crop&w=800&q=75",
+    image: "https://ibb.co/TMjpbHjF",
     description: "Pure mulberry silk kurta and salwar hand-painted freehand with blooming Amritsari peonies, antique gold zari outlines, and an airy organza dupatta.",
     stockStatus: "In Stock"
   },
