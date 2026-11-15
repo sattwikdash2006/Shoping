@@ -959,8 +959,53 @@
             whatsappNumber: "919876543210",
             currencySymbol: "₹",
             instagramHandle: "@meher.punjab",
-            heroImage: ""
+            heroImage: "",
+            idPrefix: ""
           };
+
+      // Automatically assign unique Product IDs when id is omitted or empty
+      function assignAutoProductIds(products, idPrefix) {
+        const prefix = idPrefix ? String(idPrefix) : "";
+        const usedIds = new Set();
+        let nextId = 101;
+
+        products.forEach((product) => {
+          if (product && product.id !== undefined && product.id !== null && String(product.id).trim() !== "") {
+            const cleanId = String(product.id).trim();
+            usedIds.add(cleanId);
+
+            const numericPart = Number(prefix ? cleanId.replace(prefix, "") : cleanId);
+            if (!Number.isNaN(numericPart) && Number.isInteger(numericPart) && numericPart >= nextId) {
+              nextId = numericPart + 1;
+            }
+          }
+        });
+
+        return products.map((product) => {
+          if (!product || typeof product !== "object") return product;
+
+          const hasManualId =
+            product.id !== undefined &&
+            product.id !== null &&
+            String(product.id).trim() !== "";
+
+          if (hasManualId) {
+            return Object.assign({}, product, { id: String(product.id).trim() });
+          }
+
+          while (usedIds.has(prefix + nextId)) {
+            nextId++;
+          }
+
+          const generatedId = prefix + nextId;
+          usedIds.add(generatedId);
+          nextId++;
+
+          return Object.assign({}, product, { id: generatedId });
+        });
+      }
+
+      const CATALOG_PRODUCTS = assignAutoProductIds(PRODUCTS, config.idPrefix);
 
       let activeCategory = "All";
       let searchQuery = "";
@@ -1034,7 +1079,7 @@
 
       function renderCategoryPills() {
         const uniqueCategories = ["All"];
-        PRODUCTS.forEach((p) => {
+        CATALOG_PRODUCTS.forEach((p) => {
           if (p.category && !uniqueCategories.includes(p.category)) {
             uniqueCategories.push(p.category);
           }
@@ -1052,7 +1097,7 @@
 
       function renderProducts() {
         const query = searchQuery.trim().toLowerCase();
-        const filtered = PRODUCTS.filter((product) => {
+        const filtered = CATALOG_PRODUCTS.filter((product) => {
           const matchesCat = activeCategory === "All" || product.category === activeCategory;
           if (!matchesCat) return false;
           if (!query) return true;
@@ -1121,7 +1166,7 @@
       }
 
       function openProductModal(productId) {
-        const product = PRODUCTS.find((p) => String(p.id) === String(productId));
+        const product = CATALOG_PRODUCTS.find((p) => String(p.id) === String(productId));
         if (!product) return;
 
         const isSold = String(product.stockStatus).toLowerCase() === "sold out";
